@@ -96,12 +96,13 @@ co_images.forEach(function(co_image) {
     link.appendChild(co_image);
 })
 
-// /co/ reference ---- co-link
-var co_links = Array.from(document.getElementsByClassName("co-link"));
-co_links.forEach(function(co_link) {
-    let posts = co_link.getAttribute('post').replace(/\s/g, "").split(',');
+// /co/ references ---- <ref>
+var refs = document.getElementsByTagName("ref");
+for (let i = 0; i < refs.length;) {
+    let ref = refs[i];
+    let posts = ref.getAttribute('post').replace(/\s/g, "").split(',');
     let post_links = [];
-    posts.forEach(function(post) {
+    posts.forEach(function(post) { // get thread the post was from
         post_thread = 0
         threads.forEach(function(thread) {
             if (thread < parseInt(post)) {
@@ -111,9 +112,17 @@ co_links.forEach(function(co_link) {
         post_links.push(String(post_thread)+'/#'+post);
     })
 
-    var words = co_link.innerHTML.split(" ");
-    var last_word = words[words.length - 1];
-    var text_without_last = words.slice(0, -1).join(" ");
+    var parent_html = ref.parentNode.innerHTML
+    
+    var tag_appears_at = parent_html.indexOf(ref.getAttribute('post'))
+    var tag_ends_at = parent_html.indexOf('>', tag_appears_at)+1
+    var tag_starts_at = parent_html.lastIndexOf('<', tag_appears_at)
+    
+    var last_word_start = parent_html.lastIndexOf(' ', tag_starts_at)
+    
+    var last_word = parent_html.slice(last_word_start, tag_starts_at)
+    var html_without_last_and_tag_start = parent_html.slice(0, last_word_start)
+    var html_without_last_and_tag_end = parent_html.slice(tag_ends_at, parent_html.length)
 
     let reference_html = ' <span style="white-space: nowrap;">'+last_word+'<sup class="reference">['
     post_links.forEach(function(post_link, i){
@@ -124,8 +133,8 @@ co_links.forEach(function(co_link) {
     }) 
     reference_html += ']</sup></span>'
 
-    co_link.innerHTML = text_without_last + reference_html;
-})
+    ref.parentNode.innerHTML = html_without_last_and_tag_start + reference_html + html_without_last_and_tag_end;
+}
 
 const last_updated_date = new Date(last_updated);
 // Get the current date and time
