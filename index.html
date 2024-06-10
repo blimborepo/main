@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <script>
-        const last_updated = "2024-06-10T02:15:34+0000";
         var threads = [143975428, 144000789]
+        var last_updated_date;
+
+        //get when github was committed to
+        const repoOwner = 'blimborepo';
+        const repoName = 'main';
+
+        fetch(`https://api.github.com/repos/${repoOwner}/${repoName}`)
+        .then(response => response.json())
+        .then(data => {
+            var last_updated_date = new Date(data.updated_at);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+
     </script>
 </head>
 

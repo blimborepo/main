@@ -136,7 +136,6 @@ for (let i = 0; i < refs.length;) {
     ref.parentNode.innerHTML = html_without_last_and_tag_start + reference_html + html_without_last_and_tag_end;
 }
 
-const last_updated_date = new Date(last_updated);
 // Get the current date and time
 const now = new Date();
 
