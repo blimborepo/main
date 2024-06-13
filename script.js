@@ -109,7 +109,7 @@ if (minutes > 0) timeDifferenceString += `${minutes} minutes `;
 if (seconds > 0) timeDifferenceString += `${seconds} seconds`;
 
 // Display the formatted date with the time difference
-document.getElementById("last-updated").textContent += `${formattedDate}`; //(${timeDifferenceString} ago)
+document.getElementById("last-updated").textContent += `${formattedDate}(${timeDifferenceString} ago)`
 
 //set current thread to last thread in the threads list
 document.getElementById("current-thread").setAttribute('href', 'https://boards.4chan.org/co/thread/'+String(threads[threads.length-1]))
