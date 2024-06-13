@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="style.css">
     <script>
         var threads = [143975428, 144000789, 144052342]
-        var last_updated_date;
+        var last_updated_date = new Date('2024-06-11T11:13:53');
 
         //get when github was committed to
         const repoOwner = 'blimborepo';
@@ -14,7 +14,7 @@
         fetch(`https://api.github.com/repos/${repoOwner}/${repoName}`)
         .then(response => response.json())
         .then(data => {
-            var last_updated_date = new Date(data.updated_at);
+            var last_updated_date = new Date('2024-06-11T11:13:3');
         })
         .catch(error => console.error('Error fetching data:', error));
 
@@ -67,7 +67,7 @@
         <dropset title="Blimbo:">
             <table>
                 <td style="width: 25%">
-                    <crop right="66%" left="1%", top="20%" bottom="15%">
+                    <crop right="66%" left="1%", top="34%" bottom="15%">
                         <img class="co-image" post="143986270" desu="1717/83/1717834618338.png">
                     </crop>
                     <crop bottom="35" right="50" left="16">
@@ -79,7 +79,7 @@
                 </td>
                 <td>
                     <p>
-                        Full Name: Blimbo<br>
+                        Legal Name: Blimbo<br>
                         Age: 22<ref post="143982227, 143985389 "><br>
                         Gender: Female<ref post="143980408">
                     </p>
@@ -89,7 +89,7 @@
         <dropset title="His Friend:">
             <table>
                 <td style="width: 25%">
-                    <crop right="76%" left="5%", top="7%" bottom="23%">
+                    <crop right="76%" left="5%", top="7%" bottom="31%">
                         <img class="co-image" post="143986270" desu="1717/78/1717788629676.png">
                     </crop>
                     <crop top="36" right="55" left="4">
@@ -98,7 +98,7 @@
                 </td>
                 <td>
                     <p>
-                        Full  Name: His Friend<ref post="143975728 "><br>
+                        Legal  Name: His Friend<ref post="143975728 "><br>
                         Age: 66<ref post="143982227"><br>
                         Gender: Male
                     </p>
@@ -108,13 +108,13 @@
         <dropset title="Doodle:">
             <table>
                 <td style="width: 25%">
-                    <crop right="83" left="8" top="30" bottom="30">
+                    <crop right="83" left="8" top="39" bottom="30">
                         <img class="co-image" post="143987062 " desu="1717/79/1717791887688.png">
                     </crop>
                 </td>
                 <td>
                     <p>
-                        Full Name: Doodle<br>
+                        Legal Name: Doodle<br>
                         Age: 44 (claims to be 33, everybody knows he's 44)<ref post="143982227 "><br>
                         Gender: Male
                     </p>
@@ -124,13 +124,19 @@
         <dropset title="Hot Glimbo:">
             <table>
                 <td style="width: 25%">
-                    <crop right="66%" left="1%", top="20%" bottom="15%">
-                        <img class="co-image" post="143986270" desu="1717/83/1717834618338.png">
+                    <crop left="53" right="70" bottom="50">
+                        <img class="co-image" post="143986270" desu="1717/79/1717799466643.gif">
+                    </crop>
+                    <crop left="5" bottom="10">
+                        <img class="co-image" post="143993374 " desu="1717/82/1717828173441.gif">
+                    </crop>
+                    <crop left="5" bottom="10">
+                        <img class="co-image" post="144029767  " desu="1718/06/1718069485176.png">
                     </crop>
                 </td>
                 <td>
                     <p>
-                        Full Name: Hot Glimble<br>
+                        Legal Name: Hot Glimblo<br>
                         Age: 22<ref post="143982227, 143985389 "><br>
                         Gender: Female
                     </p>
@@ -148,7 +154,7 @@
                     </td>
                     <td>
                         <p>
-                            Full Name: Hot Noodle<br>
+                            Legal Name: Hot Noodle<br>
                             Age: TBD<br>
                             Gender: Male
                         </p>
@@ -163,7 +169,7 @@
                     </td>
                     <td>
                         <p>
-                            Full Name: Kevin<br>
+                            Legal Name: Kevin<br>
                             Age: 00<ref post="143982227">
                         </p>
                     </td>

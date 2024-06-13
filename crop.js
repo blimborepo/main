@@ -15,7 +15,7 @@ crops.forEach(function(crop) {
         var move_y_by = 0;
     }
     if (left) {
-        var move_x_by = -left;
+        var move_x_by = right-left;
     } else {
         var move_x_by = 0;
     }
@@ -23,7 +23,7 @@ crops.forEach(function(crop) {
     if (left/100 < right) { //resize depending on which side is being cropped more...
         var resize_to = 100 / (1-right);
     } else {
-        var resize_to = 100 / (1-left/100);
+        var resize_to = 100 / (1-(left-right)/100);
     }
     
     if (bottom) { //calculate new height with or without set bottom
