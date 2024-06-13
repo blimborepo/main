@@ -19,11 +19,16 @@ p {
 body {
     -webkit-text-size-adjust: 180%;
     text-rendering: optimizeLegibility;
-    font-size: 1.2em;
+    font-size: 1rem;
     display: flex;
     justify-content: center;
     font-family: Arial, sans-serif;
     overflow-y: scroll;
+}
+
+td {
+    text-align: left;
+    vertical-align: top;
 }
 
 .container {
@@ -47,7 +52,7 @@ body {
 }
 
 .dropdown-text{
-    font-size: 1.3em;
+    font-size: 1.1rem;
     user-select: text;
     position: relative;
     top: -0.15em;
@@ -72,8 +77,8 @@ body {
     padding: 5%;
     width: 100%;
     height: 40vmin;
-    background-size: 70%;
-    background-position: left;
+    background-size: 80%;
+    background-position: left bottom;
     background-repeat: no-repeat;
 }
 
@@ -84,6 +89,11 @@ body {
 
 .co-image {
     width: 100%;
+}
+
+.crop {
+    width: 100%;
+    overflow: hidden;
 }
 
 *::-webkit-scrollbar {

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <head>
-    <title>Bimblo and His Friend</title>
+    <title>Blimbo and His Friend</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <script>
-        var threads = [143975428, 144000789]
+        var threads = [143975428, 144000789, 144052342]
         var last_updated_date;
 
         //get when github was committed to
@@ -33,9 +33,8 @@
     <div class="top-gif">
         <table style="width: 100%; text-align: left; overflow: scroll;"><th style="width: 60%"></th><th>
             <table>
-                <tr><a href="https://github.com/blimborepo/main">>>Contribute to this page</a></tr>
                 <tr>
-                    <h4><br><a href="https://boards.4chan.org/co/thread/144000789">>>Current Thread</a></h4>
+                    <h4><br><a id="current-thread">>>Current Thread</a></h4>
                     <dropset title="Thread Archives">
                         <ol start="0" class="past-threads-list">
                             <li><a href="https://desuarchive.org/co/thread/143960497/#143968278" target="_blank">>>143960497 (Origin)</a></li>
@@ -66,20 +65,110 @@
     </dropset>
     <dropset class="active" title="<h4>Characters:</h4>">
         <dropset title="Blimbo:">
-            <img class="co-image" post="143993964" desu="1717/83/1717834618338.png">
+            <table>
+                <td style="width: 25%">
+                    <crop right="66%" left="1%", top="20%" bottom="15%">
+                        <img class="co-image" post="143986270" desu="1717/83/1717834618338.png">
+                    </crop>
+                    <crop bottom="35" right="50" left="16">
+                        <img class="co-image" post="144001331 " desu="1717/88/1717887895296.png">
+                    </crop>
+                    <crop top="5" bottom="5" right="10" left="3">
+                        <img class="co-image" post="143995607" desu="1717/85/1717854385006.jpg">
+                    </crop>
+                </td>
+                <td>
+                    <p>
+                        Full Legal Name: Blimbo<br>
+                        Age: 22<ref post="143982227, 143985389 "><br>
+                        Gender: Female<ref post="143980408">
+                    </p>
+                </td>
+            </table>
         </dropset>
         <dropset title="His Friend:">
-            <img class="co-image" post="143986284" desu="1717/78/1717788629676.png">
+            <table>
+                <td style="width: 25%">
+                    <crop right="76%" left="5%", top="7%" bottom="23%">
+                        <img class="co-image" post="143986270" desu="1717/78/1717788629676.png">
+                    </crop>
+                    <crop top="36" right="55" left="4">
+                        <img class="co-image" post="144052491" desu="1717/77/1717777762811.png">
+                    </crop>
+                </td>
+                <td>
+                    <p>
+                        Full Legal Name: His Friend<ref post="143975728 "><br>
+                        Age: 66<ref post="143982227"><br>
+                        Gender: Male
+                    </p>
+                </td>
+            </table>
         </dropset>
         <dropset title="Doodle:">
-            <img class="co-image" post="143987062" desu="1717/79/1717791887688.png">
+            <table>
+                <td style="width: 25%">
+                    <crop right="83" left="8" top="30" bottom="30">
+                        <img class="co-image" post="143987062 " desu="1717/79/1717791887688.png">
+                    </crop>
+                </td>
+                <td>
+                    <p>
+                        Full Legal Name: Doodle<br>
+                        Age: 44 (claims to be 33, everybody knows he's 44)<ref post="143982227 "><br>
+                        Gender: Male
+                    </p>
+                </td>
+            </table>
         </dropset>
         <dropset title="Hot Glimbo:">
-            <img class="co-image" post="143993972" desu="1717/83/1717834710683.png">
+            <table>
+                <td style="width: 25%">
+                    <crop right="66%" left="1%", top="20%" bottom="15%">
+                        <img class="co-image" post="143986270" desu="1717/83/1717834618338.png">
+                    </crop>
+                </td>
+                <td>
+                    <p>
+                        Full Full Legal Name: Hot Glimble<br>
+                        Age: 22<ref post="143982227, 143985389 "><br>
+                        Gender: Female
+                    </p>
+                </td>
+            </table>
         </dropset>
-        <dropset title="Others:">
+        <dropset title="Regulars:">
+            <dropset title="Hot Noodle">
+                <table>
+                    <td style="width: 25%">
+                        <img class="co-image" post="144027163" desu="1718/05/1718057201563.png">
+                        <crop left="52" bottom="51.3" right="4" top="16">
+                            <img class="co-image" post="144054595" desu="1718/22/1718225883996.png">
+                        </crop>
+                    </td>
+                    <td>
+                        <p>
+                            Full Full Legal Name: Hot Noodle<br>
+                            Age: TBD<br>
+                            Gender: Male
+                        </p>
+                    </td>
+                </table>
+            </dropset>
             <dropset title="His Enemy:"></dropset>
-            <dropset title="Kevin:"></dropset>
+            <dropset title="Kevin:">
+                <table>
+                    <td style="width: 25%">
+                        <img class="co-image" post="143981759  " desu="1717/76/1717762490515.png">
+                    </td>
+                    <td>
+                        <p>
+                            Full Name: Kevin<br>
+                            Age: 00<ref post="143982227">
+                        </p>
+                    </td>
+                </table>
+            </dropset>
             <dropset title="Brick:"></dropset>
         </dropset>
     </dropset>
@@ -106,5 +195,7 @@
         <img class="co-image" post="144010095" desu="1717/94/1717943417918.png">
     </dropset>
 
+    <script src="dropdowns.js"></script>
     <script src="script.js"></script>
+    <script src="crop.js"></script>
 </div></body></html>
