@@ -89,28 +89,40 @@ const dateOptions = usesDayMonthYear(userLocale) ?
 
 const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
 
-// Format the last updated date to user's time zone with appropriate date format
-const formattedDate = `${new Intl.DateTimeFormat(userLocale, dateOptions).format(last_updated_date)} ${new Intl.DateTimeFormat(userLocale, timeOptions).format(last_updated_date)}`;
+function set_last_updated(last_updated_date) {
+    // Format the last updated date to user's time zone with appropriate date format
+    const formattedDate = `${new Intl.DateTimeFormat(userLocale, dateOptions).format(last_updated_date)} ${new Intl.DateTimeFormat(userLocale, timeOptions).format(last_updated_date)}`;
 
-// Calculate the time difference in milliseconds
-const timeDifference = now - last_updated_date;
+    // Calculate the time difference in milliseconds
+    const timeDifference = now - last_updated_date;
 
-// Convert time difference to a human-readable format
-const seconds = Math.floor((timeDifference / 1000) % 60);
-const minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
-const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
-const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    // Convert time difference to a human-readable format
+    const seconds = Math.floor((timeDifference / 1000) % 60);
+    const minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
+    const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
-// Create a string for the time difference
-let timeDifferenceString = "";
-if (days > 0) timeDifferenceString += `${days} days `;
-if (hours > 0) timeDifferenceString += `${hours} hours `;
-if (minutes > 0) timeDifferenceString += `${minutes} minutes `;
-if (seconds > 0) timeDifferenceString += `${seconds} seconds`;
+    // Create a string for the time difference
+    let timeDifferenceString = "";
+    if (days > 0) timeDifferenceString += `${days} day${days > 1 ? 's' : ''} `;
+    if (hours > 0) timeDifferenceString += `${hours} hour${hours > 1 ? 's' : ''} `;
+    //if (minutes > 0) timeDifferenceString += `${minutes} minutes `;
+    //if (seconds > 0) timeDifferenceString += `${seconds} seconds`;
 
-// Display the formatted date with the time difference
-console.log(last_updated_date)
-document.getElementById("last-updated").textContent += `${formattedDate}`//(${timeDifferenceString} ago)`
+    // Display the formatted date with the time difference
+    document.getElementById("last-updated").textContent += `${formattedDate}`+` (${timeDifferenceString} ago)`
 
-//set current thread to last thread in the threads list
-document.getElementById("current-thread").setAttribute('href', 'https://boards.4chan.org/co/thread/'+String(threads[threads.length-1]))
+    //set current thread to last thread in the threads list
+    document.getElementById("current-thread").setAttribute('href', 'https://boards.4chan.org/co/thread/'+String(threads[threads.length-1]))
+}
+
+//get when github was committed to
+const repoOwner = 'blimborepo';
+const repoName = 'main';
+fetch(`https://api.github.com/repos/${repoOwner}/${repoName}`)
+.then(response => response.json())
+.then(data => {
+    var last_updated_date = new Date(data.updated_at);
+    set_last_updated(last_updated_date)
+})
+.catch(error => console.error('Error fetching data:', error));
