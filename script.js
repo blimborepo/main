@@ -103,11 +103,15 @@ function set_last_updated(last_updated_date) {
     const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
     // Create a string for the time difference
-    let timeDifferenceString = "";
-    if (days > 0) timeDifferenceString += `${days} day${days > 1 ? 's' : ''} `;
-    if (hours > 0) timeDifferenceString += `${hours} hour${hours > 1 ? 's' : ''} `;
+    let timeDifferences = [];
+    if (days > 0) timeDifferences.push(`${days} day${days > 1 ? 's' : ''} `);
+    if (hours > 0) timeDifferences.push(`${hours} hour${hours > 1 ? 's' : ''} `);
+    if (minutes > 0) timeDifferences.push(`${minutes} minute${minutes > 1 ? 's' : ''} `);
+    if (seconds > 0) timeDifferences.push(`${seconds} second${seconds > 1 ? 's' : ''} `);
     //if (minutes > 0) timeDifferenceString += `${minutes} minutes `;
     //if (seconds > 0) timeDifferenceString += `${seconds} seconds`;
+
+    timeDifferenceString = timeDifferences[0] + timeDifferences[1]
 
     // Display the formatted date with the time difference
     document.getElementById("last-updated").textContent += `${formattedDate}`+` (${timeDifferenceString} ago)`
@@ -116,13 +120,21 @@ function set_last_updated(last_updated_date) {
     document.getElementById("current-thread").setAttribute('href', 'https://boards.4chan.org/co/thread/'+String(threads[threads.length-1]))
 }
 
-//get when github was committed to
 const repoOwner = 'blimborepo';
 const repoName = 'main';
-fetch(`https://api.github.com/repos/${repoOwner}/${repoName}`)
-.then(response => response.json())
-.then(data => {
-    var last_updated_date = new Date(data.updated_at);
-    set_last_updated(last_updated_date)
-})
-.catch(error => console.error('Error fetching data:', error));
+
+async function fetchLastUpdatedDate() {
+  try {
+    const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch repository information');
+    }
+    const data = await response.json();
+    const lastUpdatedDate = new Date(data.updated_at);
+    set_last_updated(lastUpdatedDate); // Assuming set_last_updated is a function you define elsewhere
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+fetchLastUpdatedDate();
