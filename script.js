@@ -108,6 +108,7 @@ function set_last_updated(last_updated_date) {
     if (hours > 0) timeDifferences.push(`${hours} hour${hours > 1 ? 's' : ''} `);
     if (minutes > 0) timeDifferences.push(`${minutes} minute${minutes > 1 ? 's' : ''} `);
     if (seconds > 0) timeDifferences.push(`${seconds} second${seconds > 1 ? 's' : ''} `);
+    timeDifferences.push('');
     //if (minutes > 0) timeDifferenceString += `${minutes} minutes `;
     //if (seconds > 0) timeDifferenceString += `${seconds} seconds`;
 
