@@ -85,6 +85,9 @@ td {
 .reference {
     font-size: smaller;
     vertical-align: super;
+    position: relative;
+    top: -0.15rem;
+    font-size: 0.7rem; /* Adjust the font size if needed */
 }
 
 .co-image {
