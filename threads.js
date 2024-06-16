@@ -31,12 +31,11 @@ for (let i = 0; i < refs.length;) {
         })
         post_links.push(String(post_thread)+'/#'+post);
     })
-
+    
     var parent_html = ref.parentNode.innerHTML
     
-    var tag_appears_at = parent_html.indexOf(ref.getAttribute('post'))
-    var tag_ends_at = parent_html.indexOf('>', tag_appears_at)+1
-    var tag_starts_at = parent_html.lastIndexOf('<', tag_appears_at)
+    var tag_starts_at = parent_html.indexOf('<ref', 0)
+    var tag_ends_at = parent_html.indexOf('>', tag_starts_at)+1
     
     var last_word_start = parent_html.lastIndexOf(' ', tag_starts_at)
     
