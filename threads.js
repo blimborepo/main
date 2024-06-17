@@ -1,4 +1,4 @@
-var threads = [143975428, 144000789, 144052342, 144104722] //last in list is latest, you retard
+var threads = [143975428, 144000789, 144052342, 144104722, 144115354] //last in list is latest, you retard
 
 //link images from /co/ back to /co/
 var co_images = Array.from(document.getElementsByClassName("co-image"));
